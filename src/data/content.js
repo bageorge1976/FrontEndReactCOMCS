@@ -27,7 +27,7 @@ export const featured = [
   {
     title: "Sciences Program",
     blurb: "Physics & Chemistry support, AP/IB pathways.",
-    to: "/programs/sciences",
+    to: "/programs/science",
   },
 ];
 /*
