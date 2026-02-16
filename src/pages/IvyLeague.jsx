@@ -32,14 +32,14 @@ export default function IvyLeague() {
             src={IMAGES.ivyLogos}
             alt="Ivy and top US university logos collage"
             className="
-            max-w-95
+            w-full max-w-4xl
             h-auto
             object-contain
             "
             loading="lazy"
         />
         </div>
-</section>
+        </section>
         <section className="grid gap-6 md:grid-cols-2">
         <div className="card p-4 flex justify-center">
             <img
