@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  /* existing */
+  --color-comcs-blue: #0B4EA2;
+  --shadow-card: 0 10px 30px rgba(11, 78, 162, 0.25);
+
+  /* RED card */
+  --color-card-red-border: #8B0000; /* dark red */
+  --shadow-card-red: 0 10px 30px rgba(139, 0, 0, 0.25);
+
+  /* GREEN card */
+  --color-card-green-border: #0F5A2F; /* dark green */
+  --shadow-card-green: 0 10px 30px rgba(15, 90, 47, 0.25);
+
+  /* 🔴 NEW: dark red hover shadow */
+  --shadow-card-hover: 0 14px 40px rgba(139, 0, 0, 0.35);
+}
+
+@layer utilities {
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  .shadow-card-hover {
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+@layer components {
+  /* Base card (already exists, shown for clarity) */
+  .card {
+    @apply rounded-2xl border bg-white shadow-card;
+  }
+
+  /* 🔴 Red card */
+  .card-red {
+    @apply
+      rounded-2xl
+      border
+      bg-white;
+    border-color: var(--color-card-red-border);
+    box-shadow: var(--shadow-card-red);
+  }
+
+  /* 🟢 Green card */
+  .card-green {
+    @apply
+      rounded-2xl
+      border
+      bg-white;
+    border-color: var(--color-card-green-border);
+    box-shadow: var(--shadow-card-green);
+  }
+  .card-hover {
+    transition-property: transform, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+}
+
+
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
