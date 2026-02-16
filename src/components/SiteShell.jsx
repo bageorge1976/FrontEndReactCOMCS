@@ -22,6 +22,12 @@ export default function SiteShell() {
     setIsProgramsOpen(false);
   };
 
+  // This replaces the problematic useEffect logic
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+    setIsProgramsOpen(false);
+  };
+
   // Close desktop dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
@@ -142,6 +148,44 @@ export default function SiteShell() {
       <main id="content" className="mx-auto max-w-6xl px-4 py-8">
         <Outlet />
       </main>
+ 
+            <footer className="bg-comcs-blue text-white border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-6 py-12">
+          <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+            <div className="flex flex-col items-center md:items-start gap-4">
+              <img src={logo} alt="COMCS logo" className="object-contain" />
+              <div className="text-sm font-bold leading-tight text-center md:text-left">
+                Calgary Olympic Math &<br /> Computer Science School
+              </div>
+            </div>
+
+            {/* Quick Links Column */}
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="font-bold text-orange-50">Programs</div>
+              <Link onClick={handleLinkClick} to="/programs/math" className="text-white/70 hover:text-white transition text-sm">Mathematics</Link>
+              <Link onClick={handleLinkClick} to="/programs/science" className="text-white/70 hover:text-white transition text-sm">Sciences</Link>
+              <Link onClick={handleLinkClick} to="/programs/computing" className="text-white/70 hover:text-white transition text-sm">Computing</Link>
+            </div>
+
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="font-bold text-orange-50">Community</div>
+              <Link onClick={handleLinkClick} to="/honor-roll" className="text-white/70 hover:text-white transition text-sm">Honor Roll</Link>
+              <Link onClick={handleLinkClick} to="/sponsors" className="text-white/70 hover:text-white transition text-sm">Sponsors</Link>
+              <Link onClick={handleLinkClick} to="/news" className="text-white/70 hover:text-white transition text-sm">News</Link>
+            </div>
+
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="font-bold text-orange-50">Contact</div>
+              <a href="mailto:coms@olympicmathschool.ca" className="text-white/70 hover:text-white transition text-sm break-all">coms@olympicmathschool.ca</a>
+              <Link onClick={handleLinkClick} to="/contact" className="text-white/70 hover:text-white transition text-sm">Find Us</Link>
+            </div>
+          </div>
+
+          <div className="mt-8 pt-8 border-t border-white/10 text-center text-xs text-white/40">
+            © {new Date().getFullYear()} Calgary Olympic Math & Computer Science School. All rights reserved.
+          </div>
+        </div>
+      </footer>
 
       <style dangerouslySetInnerHTML={{ __html: `
         .mobile-link { display: block; padding: 1.25rem 1rem; border-radius: 0.75rem; background-color: white; border: 1px solid #e5e7eb; font-weight: 500; color: #374151; margin-bottom: 0.5rem; }
